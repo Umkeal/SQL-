@@ -1,0 +1,8 @@
+SELECT 
+    "Ship Mode" AS "Тип доставки",
+    COUNT(*) AS "Количество заказов",
+    ROUND(100.0 * COUNT(*) / SUM(COUNT(*)) OVER(), 2) AS "% от всех заказов",
+    ROUND(AVG(Profit), 2) AS "Средняя прибыль"
+FROM Sample
+GROUP BY "Ship Mode"
+ORDER BY "Количество заказов" DESC;
