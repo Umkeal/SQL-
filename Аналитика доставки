@@ -1,0 +1,9 @@
+SELECT 
+    "Ship Mode" AS "Тип доставки",
+    COUNT("Ship Mode") AS "Количество заказов",
+    ROUND(AVG(Sales), 2) AS "Средний чек",
+    ROUND(AVG(Profit), 2) AS "Средняя прибыль",
+    SUM(Profit) AS "Общая прибыль"
+FROM Sample
+GROUP BY "Ship Mode"
+ORDER BY "Общая прибыль" DESC;
