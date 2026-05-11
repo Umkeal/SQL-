@@ -1,0 +1,9 @@
+SELECT 
+    Segment,
+    Region,
+    ROUND(100.0 * SUM(Profit) / NULLIF(SUM(Sales), 0), 2) AS roi_percent,
+    SUM(Sales) AS total_sales,
+    SUM(Profit) AS total_profit
+FROM Sample
+GROUP BY Segment, Region
+ORDER BY roi_percent DESC;
